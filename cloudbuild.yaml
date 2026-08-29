@@ -33,6 +33,9 @@ steps:
 images:
   - "gcr.io/$PROJECT_ID/notely:$SHORT_SHA"
 
+options:
+  logging: CLOUD_LOGGING_ONLY
+
 # _NEXT_PUBLIC_* are substitution variables you set once on the Cloud Build
 # trigger (Console > Cloud Build > Triggers > Edit > Substitution variables).
 # They are NOT secrets (these Firebase web keys are meant to be public),
