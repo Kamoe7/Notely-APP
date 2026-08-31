@@ -104,6 +104,7 @@ export default function Home() {
           <div className="flex items-center gap-2 sm:gap-3">
             <button
               onClick={toggleTheme}
+              aria-label="Toggle theme"
               className="rounded-full border border-line px-4 py-2 font-mono text-xs uppercase tracking-wide text-ink/70 transition hover:border-ink/40 hover:text-ink"
             >
               {isDark ? "Light Mode" : "Dark Mode"}
