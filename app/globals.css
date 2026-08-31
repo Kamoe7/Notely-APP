@@ -14,3 +14,12 @@
   outline: 2px solid theme("colors.ledger");
   outline-offset: 2px;
 }
+
+html.dark {
+  color-scheme: dark;
+}
+
+html.dark body {
+  background-color: #0f172a;
+  color: #f8fafc;
+}
