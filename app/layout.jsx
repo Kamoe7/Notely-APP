@@ -28,7 +28,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning className={`${display.variable} ${body.variable} ${mono.variable}`}>
-      <body className="bg-paper text-ink font-body antialiased">{children}</body>
+      <body className="bg-paper text-ink font-body antialiased min-h-screen">{children}</body>
     </html>
   );
 }
