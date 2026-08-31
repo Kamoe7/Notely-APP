@@ -21,12 +21,12 @@ export default function AddNoteForm({ onAdd }) {
         value={text}
         onChange={(e) => setText(e.target.value)}
         placeholder="Write a note…"
-        className="flex-1 rounded-lg border border-line bg-white px-4 py-3 font-body text-sm text-ink placeholder:text-ink/35 focus:border-ledger"
+        className="flex-1 rounded-lg border border-line bg-white px-4 py-3 font-body text-sm text-ink placeholder:text-ink/35 focus:border-ledger dark:border-gray-700 dark:bg-gray-700 dark:text-gray-100 dark:placeholder:text-gray-400"
       />
       <button
         type="submit"
         disabled={submitting}
-        className="rounded-lg bg-ledger px-5 py-3 font-mono text-xs uppercase tracking-wide text-paper transition hover:bg-ledger2 disabled:opacity-50"
+        className="rounded-lg bg-ledger px-5 py-3 font-mono text-xs uppercase tracking-wide text-paper transition hover:bg-ledger2 disabled:opacity-50 dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700"
       >
         Add
       </button>
