@@ -44,3 +44,7 @@
   background-color: #111827;
   color: #f9fafb;
 }
+
+.dark hr {
+  border-color: #374151;
+}
