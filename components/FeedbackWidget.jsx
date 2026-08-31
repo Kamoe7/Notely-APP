@@ -41,14 +41,14 @@ export default function FeedbackWidget({ userId }) {
   return (
     <div className="fixed bottom-6 right-6 z-50">
       {open && (
-        <div className="mb-3 w-80 rounded-xl border border-line bg-white p-5 shadow-lg">
+        <div className="mb-3 w-80 rounded-xl border border-line bg-white p-5 shadow-lg dark:border-slate-800 dark:bg-slate-900">
           {status === "sent" ? (
-            <p className="font-mono text-sm text-ledger">
+            <p className="font-mono text-sm text-ledger dark:text-emerald-400">
               Thanks — we've got it.
             </p>
           ) : (
             <form onSubmit={handleSubmit}>
-              <p className="mb-2 font-display text-lg italic text-ink">
+              <p className="mb-2 font-display text-lg italic text-ink dark:text-slate-100">
                 What's missing or broken?
               </p>
               <textarea
@@ -56,13 +56,13 @@ export default function FeedbackWidget({ userId }) {
                 onChange={(e) => setText(e.target.value)}
                 rows={4}
                 placeholder="e.g. I really need dark mode"
-                className="w-full resize-none rounded-lg border border-line px-3 py-2 font-body text-sm text-ink placeholder:text-ink/35 focus:border-ledger"
+                className="w-full resize-none rounded-lg border border-line bg-white px-3 py-2 font-body text-sm text-ink placeholder:text-ink/35 focus:border-ledger dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 dark:placeholder:text-slate-500 dark:focus:border-ledger"
               />
               <div className="mt-3 flex justify-end gap-2">
                 <button
                   type="button"
                   onClick={() => setOpen(false)}
-                  className="px-3 py-2 font-mono text-xs text-ink/50 hover:text-ink"
+                  className="px-3 py-2 font-mono text-xs text-ink/50 hover:text-ink dark:text-slate-400 dark:hover:text-slate-200"
                 >
                   Cancel
                 </button>
@@ -81,7 +81,7 @@ export default function FeedbackWidget({ userId }) {
       <button
         onClick={() => setOpen((v) => !v)}
         aria-label="Give feedback"
-        className="flex h-14 w-14 items-center justify-center rounded-full bg-ink text-paper shadow-lg transition hover:bg-ink/85"
+        className="flex h-14 w-14 items-center justify-center rounded-full bg-ink text-paper shadow-lg transition hover:bg-ink/85 dark:bg-slate-100 dark:text-slate-900 dark:hover:bg-slate-200"
       >
         <span className="font-display text-xl italic">?</span>
       </button>
