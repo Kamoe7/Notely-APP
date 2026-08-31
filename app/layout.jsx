@@ -25,10 +25,27 @@ export const metadata = {
   description: "Quick notes, kept in order.",
 };
 
+const themeScript = `
+  (function() {
+    try {
+      var storedTheme = localStorage.getItem('theme') || localStorage.getItem('notely_theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (storedTheme === 'dark' || (!storedTheme && prefersDark)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    } catch (e) {}
+  })();
+`;
+
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable}`}>
-      <body className="bg-paper text-ink font-body antialiased">{children}</body>
+    <html lang="en" suppressHydrationWarning className={`${display.variable} ${body.variable} ${mono.variable}`}>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
+      <body className="bg-paper text-ink font-body antialiased transition-colors duration-200">{children}</body>
     </html>
   );
 }
