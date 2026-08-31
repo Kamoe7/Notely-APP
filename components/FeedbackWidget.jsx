@@ -41,7 +41,7 @@ export default function FeedbackWidget({ userId }) {
   return (
     <div className="fixed bottom-6 right-6 z-50">
       {open && (
-        <div className="mb-3 w-80 rounded-xl border border-line bg-white p-5 shadow-lg dark:border-slate-800 dark:bg-slate-900">
+        <div className="mb-3 w-80 rounded-xl border border-line bg-white p-5 shadow-lg dark:border-slate-800 dark:bg-slate-900 dark:shadow-black/40">
           {status === "sent" ? (
             <p className="font-mono text-sm text-ledger dark:text-emerald-400">
               Thanks — we've got it.
@@ -56,7 +56,7 @@ export default function FeedbackWidget({ userId }) {
                 onChange={(e) => setText(e.target.value)}
                 rows={4}
                 placeholder="e.g. I really need dark mode"
-                className="w-full resize-none rounded-lg border border-line bg-white px-3 py-2 font-body text-sm text-ink placeholder:text-ink/35 focus:border-ledger dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 dark:placeholder:text-slate-500 dark:focus:border-ledger"
+                className="w-full resize-none rounded-lg border border-line bg-white px-3 py-2 font-body text-sm text-ink placeholder:text-ink/35 focus:border-ledger focus:outline-none dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 dark:placeholder:text-slate-500 dark:focus:border-ledger"
               />
               <div className="mt-3 flex justify-end gap-2">
                 <button
@@ -69,7 +69,7 @@ export default function FeedbackWidget({ userId }) {
                 <button
                   type="submit"
                   disabled={status === "sending"}
-                  className="rounded-lg bg-ledger px-4 py-2 font-mono text-xs uppercase tracking-wide text-paper hover:bg-ledger2 disabled:opacity-50"
+                  className="rounded-lg bg-ledger px-4 py-2 font-mono text-xs uppercase tracking-wide text-paper hover:bg-ledger2 disabled:opacity-50 dark:bg-ledger dark:text-paper dark:hover:bg-ledger2"
                 >
                   {status === "sending" ? "Sending…" : "Send"}
                 </button>
