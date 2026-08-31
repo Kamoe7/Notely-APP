@@ -18,6 +18,7 @@ import AddNoteForm from "@/components/AddNoteForm";
 import FeedbackWidget from "@/components/FeedbackWidget";
 import ShipNotifications from "@/components/ShipNotifications";
 import NameGate from "@/components/NameGate";
+import DarkModeToggle from "@/components/DarkModeToggle";
 
 export default function Home() {
   const [userId, setUserId] = useState(null);
@@ -64,23 +65,26 @@ export default function Home() {
   if (!userId) return <NameGate onDone={setUserId} />;
 
   return (
-    <main className="min-h-screen">
-      <header className="border-b border-line px-6 py-8 sm:px-10">
-        <div className="mx-auto flex max-w-3xl items-end justify-between">
+    <main className="min-h-screen bg-paper text-ink transition-colors dark:bg-zinc-950 dark:text-zinc-100">
+      <header className="border-b border-line px-6 py-8 transition-colors dark:border-zinc-800 sm:px-10">
+        <div className="mx-auto flex max-w-3xl items-end justify-between gap-4">
           <div>
-            <p className="font-mono text-xs uppercase tracking-[0.2em] text-ledger">
+            <p className="font-mono text-xs uppercase tracking-[0.2em] text-ledger dark:text-zinc-400">
               Notely
             </p>
-            <h1 className="mt-1 font-display text-3xl italic text-ink sm:text-4xl">
+            <h1 className="mt-1 font-display text-3xl italic text-ink dark:text-zinc-100 sm:text-4xl">
               Quick notes, kept in order.
             </h1>
           </div>
-          <button
-            onClick={handleExport}
-            className="rounded-full border border-line px-4 py-2 font-mono text-xs uppercase tracking-wide text-ink/70 transition hover:border-ink/40 hover:text-ink"
-          >
-            Export
-          </button>
+          <div className="flex items-center gap-3">
+            <DarkModeToggle />
+            <button
+              onClick={handleExport}
+              className="rounded-full border border-line px-4 py-2 font-mono text-xs uppercase tracking-wide text-ink/70 transition hover:border-ink/40 hover:text-ink dark:border-zinc-700 dark:text-zinc-300 dark:hover:border-zinc-500 dark:hover:text-zinc-100"
+            >
+              Export
+            </button>
+          </div>
         </div>
         {exportError && (
           <div className="mx-auto mt-4 max-w-3xl rounded-md border border-flag/30 bg-flag/10 px-4 py-2 font-mono text-xs text-flag">
@@ -96,10 +100,10 @@ export default function Home() {
 
         <ol className="mt-10 space-y-3">
           {loading && (
-            <p className="font-mono text-sm text-ink/40">Loading notes…</p>
+            <p className="font-mono text-sm text-ink/40 dark:text-zinc-500">Loading notes…</p>
           )}
           {!loading && notes.length === 0 && (
-            <li className="rounded-lg border border-dashed border-line px-5 py-8 text-center font-body text-sm text-ink/50">
+            <li className="rounded-lg border border-dashed border-line px-5 py-8 text-center font-body text-sm text-ink/50 dark:border-zinc-800 dark:text-zinc-400">
               No notes yet. Write down the first thing on your mind.
             </li>
           )}
