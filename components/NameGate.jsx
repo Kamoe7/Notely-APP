@@ -14,12 +14,12 @@ export default function NameGate({ onDone }) {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-paper px-6">
+    <div className="flex min-h-screen items-center justify-center bg-paper dark:bg-gray-900 px-6">
       <form
         onSubmit={handleSubmit}
         className="w-full max-w-sm rounded-xl border border-line bg-white p-8 dark:border-gray-700 dark:bg-gray-800"
       >
-        <p className="font-mono text-xs uppercase tracking-[0.2em] text-ledger">
+        <p className="font-mono text-xs uppercase tracking-[0.2em] text-ledger dark:text-gray-400">
           Notely
         </p>
         <h1 className="mt-1 font-display text-2xl italic text-ink dark:text-white">
@@ -33,7 +33,7 @@ export default function NameGate({ onDone }) {
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="Your name"
-          className="mt-5 w-full rounded-lg border border-line px-4 py-3 font-body text-sm text-ink placeholder:text-ink/35 focus:border-ledger dark:border-gray-700 dark:bg-gray-800 dark:text-white"
+          className="mt-5 w-full rounded-lg border border-line px-4 py-3 font-body text-sm text-ink placeholder:text-ink/35 focus:border-ledger dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:placeholder:text-gray-500"
         />
         <button
           type="submit"
