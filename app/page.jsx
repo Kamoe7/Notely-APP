@@ -25,6 +25,19 @@ export default function Home() {
   const [notes, setNotes] = useState([]);
   const [loading, setLoading] = useState(true);
   const [exportError, setExportError] = useState(false);
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const initialDark = savedTheme ? savedTheme === "dark" : prefersDark;
+    setIsDark(initialDark);
+    if (initialDark) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, []);
 
   useEffect(() => {
     setUserId(getDisplayName());
@@ -40,6 +53,18 @@ export default function Home() {
     });
     return () => unsub();
   }, [userId]);
+
+  function toggleDarkMode() {
+    const nextDark = !isDark;
+    setIsDark(nextDark);
+    if (nextDark) {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  }
 
   async function handleAdd(text) {
     if (!text.trim()) return;
@@ -75,12 +100,20 @@ export default function Home() {
               Quick notes, kept in order.
             </h1>
           </div>
-          <button
-            onClick={handleExport}
-            className="rounded-full border border-line px-4 py-2 font-mono text-xs uppercase tracking-wide text-ink/70 transition hover:border-ink/40 hover:text-ink"
-          >
-            Export
-          </button>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={toggleDarkMode}
+              className="rounded-full border border-line px-4 py-2 font-mono text-xs uppercase tracking-wide text-ink/70 transition hover:border-ink/40 hover:text-ink"
+            >
+              {isDark ? "Light" : "Dark"}
+            </button>
+            <button
+              onClick={handleExport}
+              className="rounded-full border border-line px-4 py-2 font-mono text-xs uppercase tracking-wide text-ink/70 transition hover:border-ink/40 hover:text-ink"
+            >
+              Export
+            </button>
+          </div>
         </div>
         {exportError && (
           <div className="mx-auto mt-4 max-w-3xl rounded-md border border-flag/30 bg-flag/10 px-4 py-2 font-mono text-xs text-flag">
