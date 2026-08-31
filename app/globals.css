@@ -35,3 +35,12 @@
 .dark button {
   color: inherit;
 }
+
+.dark ::placeholder {
+  color: #9ca3af;
+}
+
+.dark option {
+  background-color: #111827;
+  color: #f9fafb;
+}
