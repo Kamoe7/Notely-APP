@@ -56,7 +56,7 @@ export default function FeedbackWidget({ userId }) {
                 onChange={(e) => setText(e.target.value)}
                 rows={4}
                 placeholder="e.g. I really need dark mode"
-                className="w-full resize-none rounded-lg border border-line bg-white px-3 py-2 font-body text-sm text-ink placeholder:text-ink/35 focus:border-ledger focus:outline-none dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 dark:placeholder:text-slate-500 dark:focus:border-ledger"
+                className="w-full resize-none rounded-lg border border-line bg-white px-3 py-2 font-body text-sm text-ink placeholder:text-ink/35 focus:border-ledger focus:outline-none dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 dark:placeholder:text-slate-400 dark:focus:border-ledger"
               />
               <div className="mt-3 flex justify-end gap-2">
                 <button
